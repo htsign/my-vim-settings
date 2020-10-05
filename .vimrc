@@ -58,7 +58,6 @@ augroup OmniComplete
       \ if &l:omnifunc ==# ''
       \|    setlocal omnifunc=syntaxcomplete#Complete
       \|endif
-    " autocmd FileType java,jsp :g/\%(\/\/\|<%--\) *\[\d/d
 augroup END
 
 
