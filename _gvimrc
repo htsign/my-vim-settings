@@ -1,0 +1,11 @@
+colorscheme desert
+highlight! Pmenu guibg=#21222C ctermbg=235
+highlight! PmenuSbar guibg=#21222C ctermbg=235
+highlight! PmenuSel guibg=#44475A ctermbg=239
+highlight! PmenuThumb guibg=#44475A ctermbg=239
+
+set columns=140 lines=45
+set guifont=Cica:h12
+set renderoptions=type:directx,geom:1,renmode:5
+
+autocmd GUIEnter * simalt ~x
