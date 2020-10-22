@@ -60,5 +60,4 @@ augroup OmniComplete
       \|endif
 augroup END
 
-
-let g:EasyMotion_smartcase = 1
+source ~/.vim/easymotion.vim

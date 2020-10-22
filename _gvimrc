@@ -9,3 +9,4 @@ set guifont=Cica:h12
 set renderoptions=type:directx,geom:1,renmode:5
 
 autocmd GUIEnter * simalt ~x
+autocmd VimResized * execute "normal \<C-w>="
