@@ -7,7 +7,7 @@ PACKAGES=(
     'extensions/start/ neoclide/coc.nvim junegunn/fzf.vim easymotion/vim-easymotion tpope/vim-surround'
     'ftplugins/start/ mechatroner/rainbow_csv MTDL9/vim-log-highlighting plasticboy/vim-markdown'
 )
-for v in ${PATHS[@]}; do
+for v in ${PACKAGES[@]}; do
     arr=(${v[@]})
     path=${arr[0]}
     
