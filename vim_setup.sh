@@ -13,6 +13,12 @@ for v in "${PACKAGES[@]}"; do
     
     mkdir -p "pack/$path"
     for id in ${arr[@]:1}; do
-        git -C "pack/$path" clone "https://github.com/$id.git"
+        name=${id#*/}
+        if [ -d "pack/$path/$name" ]; then
+            echo "updating $id ..."
+            git -C "pack/$path/$name" pull --ff-only
+        else
+            git -C "pack/$path" clone "https://github.com/$id.git"
+        fi
     done
 done
