@@ -2,7 +2,7 @@
 
 PREFIX="https://gist.githubusercontent.com/htsign/c7b2817ffa2e4ce9f6646d07e998ab0f/raw"
 
-curl -LO $PREFIX/.vimrc
+curl -L $PREFIX/.vimrc -o ~/.vimrc
 
 mkdir -p ~/.vim
 cd ~/.vim
