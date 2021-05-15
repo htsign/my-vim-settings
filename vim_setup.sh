@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
+PREFIX="https://gist.githubusercontent.com/htsign/c7b2817ffa2e4ce9f6646d07e998ab0f/raw"
+
+curl -LO $PREFIX/.vimrc
+
 mkdir -p ~/.vim
 cd ~/.vim
+
+curl -LO $PREFIX/keymap.vim
+curl -LO $PREFIX/easymotion.vim
 
 PACKAGES=(
     'extensions/start/ neoclide/coc.nvim junegunn/fzf.vim easymotion/vim-easymotion tpope/vim-surround'
