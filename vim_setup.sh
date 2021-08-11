@@ -11,7 +11,7 @@ curl -LO $PREFIX/keymap.vim
 curl -LO $PREFIX/easymotion.vim
 
 PACKAGES=(
-    'extensions/start/ neoclide/coc.nvim junegunn/fzf.vim easymotion/vim-easymotion tpope/vim-surround'
+    'extensions/start/ vim-jp/vimdoc-ja neoclide/coc.nvim junegunn/fzf.vim easymotion/vim-easymotion tpope/vim-surround'
     'ftplugins/start/ mechatroner/rainbow_csv MTDL9/vim-log-highlighting plasticboy/vim-markdown'
 )
 for v in "${PACKAGES[@]}"; do

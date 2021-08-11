@@ -45,6 +45,8 @@ set smartcase
 set wildmenu
 set showmatch
 
+set helplang=ja,en
+
 set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['..(&fenc!=''?&fenc:&enc)..(&bomb?'\ (BOM)':'')..']['..&ff..']'}%=%{'['..&ft..']'}%=%6l,%c%V%8P
 
