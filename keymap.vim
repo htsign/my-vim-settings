@@ -10,20 +10,27 @@ nnoremap [winsize]v- :vertical resize -5<CR>
 augroup KeyBinding
     autocmd!
     autocmd VimEnter *
-        \ if exists(':CocAction')
-            \|nmap <silent> [g <Plug>(coc-diagnostic-prev)
-            \|nmap <silent> ]g <Plug>(coc-diagnostic-next)
-            \|nnoremap <silent> <Leader>sr :call CocAction('jumpReferences')<CR>
+        \ if exists(':LspStatus')
+            \|nmap <silent> [g :LspNextDiagnostic<CR>
+            \|nmap <silent> ]g :LspPreviousDiagnostic<CR>
+            \|nnoremap <silent> g. :<C-u>LspCodeAction<CR>
             \|nnoremap <silent> gd :call <SID>goto_definition()<CR>
-            \|nnoremap <silent> gi <Plug>(coc-implementation)
-            \|nnoremap <silent> gr <Plug>(coc-references)
+            \|nnoremap <silent> gt :<C-u>LspPeekTypeDefinition<CR>
+            \|nnoremap <silent> gi :<C-u>LspPeekImplementation<CR>
+            \|nnoremap <silent> gr :<C-u>LspReferences<CR>
             \|nnoremap <silent> K :call <SID>show_documentation()<CR>
+            \|nnoremap <Leader>rn :<C-u>LspRename<CR>
+            \|nnoremap == :<C-u>LspDocumentFormat<CR>
+            \|vnoremap = :LspDocumentRangeFormat<CR>
+            \|nnoremap <silent> <Leader>gt :<C-u>LspTypeDefinition<CR>
+            \|nnoremap <silent> <Leader>gi :<C-u>LspImplementation<CR>
         \|endif
 augroup END
 
 function! s:goto_definition()
-    if CocAction('jumpDefinition')
-        return v:true
+    if exists(':LspDefinition')
+        LspDefinition
+        return
     endif
 
     let ret = execute("silent! normal \<C-]>")
@@ -33,9 +40,9 @@ function! s:goto_definition()
 endfunction
 
 function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
+    if index(['vim','help'], &filetype) >= 0
         execute 'h ' .. expand('<cword>')
     else
-        call CocAction('doHover')
+        LspHover
     endif
 endfunction
