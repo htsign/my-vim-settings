@@ -25,6 +25,7 @@ Dir.chdir File.expand_path('~/.vim') do
     'prabirshrestha/asyncomplete.vim',
     'prabirshrestha/asyncomplete-lsp.vim',
     'easymotion/vim-easymotion',
+    'itchyny/vim-cursorword',
     'tpope/vim-surround',
   ].freeze
   FTPLUGIN_PACKAGES = [
