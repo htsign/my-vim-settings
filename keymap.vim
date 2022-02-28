@@ -10,27 +10,25 @@ nnoremap [winsize]v- :vertical resize -5<CR>
 augroup KeyBinding
     autocmd!
     autocmd VimEnter *
-        \ if exists(':LspStatus')
-            \|nmap <silent> [g :LspNextDiagnostic<CR>
-            \|nmap <silent> ]g :LspPreviousDiagnostic<CR>
-            \|nnoremap <silent> g. :<C-u>LspCodeAction<CR>
+        \ if exists(':CocAction')
+            \|nmap <silent> [g <Plug>(coc-diagnostic-prev)
+            \|nmap <silent> ]g <Plug>(coc-diagnostic-next)
+            \|nnoremap <silent> g. :call CocActionAsync('codeAction')<CR>
+            \|vnoremap <silent> g. :call CocActionAsync('codeAction', v:true)<CR>
             \|nnoremap <silent> gd :call <SID>goto_definition()<CR>
-            \|nnoremap <silent> gt :<C-u>LspPeekTypeDefinition<CR>
-            \|nnoremap <silent> gi :<C-u>LspPeekImplementation<CR>
-            \|nnoremap <silent> gr :<C-u>LspReferences<CR>
+            \|nnoremap <silent> gt :call CocActionAsync('jumpTypeDefunition')<CR>
+            \|nnoremap <silent> gi :call CocActionAsync('jumpImplementation')<CR>
+            \|nnoremap <silent> gr :call CocActionAsync('jumpReferences')<CR>
             \|nnoremap <silent> K :call <SID>show_documentation()<CR>
-            \|nnoremap <Leader>rn :<C-u>LspRename<CR>
-            \|nnoremap == :<C-u>LspDocumentFormat<CR>
-            \|vnoremap = :LspDocumentRangeFormat<CR>
-            \|nnoremap <silent> <Leader>gt :<C-u>LspTypeDefinition<CR>
-            \|nnoremap <silent> <Leader>gi :<C-u>LspImplementation<CR>
+            \|nnoremap <Leader>rn :call CocActionAsync('rename')<CR>
+            \|nnoremap == :call CocActionAsync('format')<CR>
+            \|vnoremap = :call CocActionAsync('formatSelected', 'v')<CR>
         \|endif
 augroup END
 
 function! s:goto_definition()
-    if exists(':LspDefinition')
-        LspDefinition
-        return
+    if CocAction('jumpDefinition')
+        return v:true
     endif
 
     let ret = execute("silent! normal \<C-]>")
@@ -42,7 +40,9 @@ endfunction
 function! s:show_documentation()
     if index(['vim','help'], &filetype) >= 0
         execute 'h ' .. expand('<cword>')
+    elseif coc#rpc#ready()
+        call CocActionAsync('doHover')
     else
-        LspHover
+        call CocAction('doHover')
     endif
 endfunction

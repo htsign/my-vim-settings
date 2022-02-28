@@ -19,30 +19,27 @@ save File.expand_path('~/.vim/easymotion.vim'), "#{PREFIX}/easymotion.vim"
 
 Dir.chdir File.expand_path('~/.vim') do
   EXT_PACKAGES = [
-    'vim-jp/vimdoc-ja',
-    'prabirshrestha/vim-lsp',
-    'mattn/vim-lsp-settings',
-    'prabirshrestha/asyncomplete.vim',
-    'prabirshrestha/asyncomplete-lsp.vim',
-    'easymotion/vim-easymotion',
-    'itchyny/vim-cursorword',
-    'tpope/vim-surround',
+    ['vim-jp/vimdoc-ja'],
+    ['neoclide/coc.nvim', 'release'],
+    ['easymotion/vim-easymotion'],
+    ['itchyny/vim-cursorword'],
+    ['tpope/vim-surround'],
   ].freeze
   FTPLUGIN_PACKAGES = [
-    'mechatroner/rainbow_csv',
-    'MTDL9/vim-log-highlighting',
-    'plasticboy/vim-markdown',
+    ['mechatroner/rainbow_csv'],
+    ['MTDL9/vim-log-highlighting'],
+    ['plasticboy/vim-markdown'],
   ].freeze
 
   def install_packages packages, category
     root = File.expand_path("~/.vim/pack/#{category}/start")
-    packages.each do |pkg|
+    packages.each do |pkg, branch|
       author, name = pkg.split('/')
       if Dir.exist? File.join(root, name)
         puts "updating #{name}..."
         `git -C #{root}/#{name} pull --ff-only`
       else
-        `git -C #{root} clone https://github.com/#{pkg}.git`
+        `git -C #{root} clone #{branch ? "-b #{branch}" : ''} https://github.com/#{pkg}.git`
       end
     end
   end
