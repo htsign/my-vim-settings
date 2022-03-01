@@ -16,7 +16,7 @@ augroup KeyBinding
             \|nnoremap <silent> g. :call CocActionAsync('codeAction')<CR>
             \|vnoremap <silent> g. :call CocActionAsync('codeAction', v:true)<CR>
             \|nnoremap <silent> gd :call <SID>goto_definition()<CR>
-            \|nnoremap <silent> gt :call CocActionAsync('jumpTypeDefunition')<CR>
+            \|nnoremap <silent> gy :call CocActionAsync('jumpTypeDefunition')<CR>
             \|nnoremap <silent> gi :call CocActionAsync('jumpImplementation')<CR>
             \|nnoremap <silent> gr :call CocActionAsync('jumpReferences')<CR>
             \|nnoremap <silent> K :call <SID>show_documentation()<CR>
