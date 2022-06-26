@@ -17,7 +17,6 @@ syntax on
 filetype plugin indent on
 colorscheme desert
 
-set iminsert=2
 set imsearch=-1
 
 set emoji
@@ -51,7 +50,11 @@ set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['..(&fenc!=''?&fenc:&enc)..(&bomb?'\ (BOM)':'')..']['..&ff..']'}%=%{'['..&ft..']'}%=%6l,%c%V%8P
 
 set mouse=a
-set ttymouse=xterm2
+
+if !has('nvim')
+    set iminsert=2
+    set ttymouse=xterm2
+endif
 
 filetype plugin indent on
 augroup OmniComplete
