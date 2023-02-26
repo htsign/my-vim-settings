@@ -34,6 +34,8 @@ Dir.chdir File.expand_path('~/.vim') do
 
   def install_packages packages, category
     root = File.expand_path("~/.vim/pack/#{category}/start")
+    FileUtils.mkdir_p root
+
     packages.each do |pkg, branch|
       author, name = pkg.split('/')
       if Dir.exist? File.join(root, name)
