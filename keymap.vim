@@ -10,7 +10,7 @@ nnoremap [winsize]v- :vertical resize -5<CR>
 augroup KeyBinding
     autocmd!
     autocmd VimEnter *
-        \ if exists(':CocAction')
+        \ if exists(':CocConfig')
             \|nmap <silent> [g <Plug>(coc-diagnostic-prev)
             \|nmap <silent> ]g <Plug>(coc-diagnostic-next)
             \|nnoremap <silent> g. :call CocActionAsync('codeAction')<CR>
