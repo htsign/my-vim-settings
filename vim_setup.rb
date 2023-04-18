@@ -27,6 +27,7 @@ Dir.chdir File.expand_path('~/.vim') do
     ['tpope/vim-surround'],
   ].freeze
   FTPLUGIN_PACKAGES = [
+    ['sheerun/vim-polyglot'],
     ['mechatroner/rainbow_csv'],
     ['MTDL9/vim-log-highlighting'],
     ['plasticboy/vim-markdown'],
