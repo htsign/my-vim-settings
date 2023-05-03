@@ -23,7 +23,7 @@ Dir.chdir File.expand_path('~/.vim') do
     ['neoclide/coc.nvim', 'release'],
     ['easymotion/vim-easymotion'],
     ['itchyny/vim-cursorword'],
-    ['tpope/vim-sleuth'],
+    ['kshenoy/vim-signature'],
     ['tpope/vim-surround'],
   ].freeze
   FTPLUGIN_PACKAGES = [
