@@ -5,8 +5,11 @@ highlight! PmenuSel guibg=#44475A ctermbg=239
 highlight! PmenuThumb guibg=#44475A ctermbg=239
 
 set columns=140 lines=45
-set guifont=Cica:h12
+if has('win32')
+  set guifont=Cica:h12
+else
+  set guifont=Cica\ 12
+endif
 set renderoptions=type:directx,geom:1,renmode:5
 
-autocmd GUIEnter * simalt ~x
 autocmd VimResized * execute "normal \<C-w>="
