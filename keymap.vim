@@ -11,33 +11,33 @@ augroup KeyBinding
     autocmd!
     autocmd VimEnter *
         \ if exists(':CocConfig')
-            \|nmap <silent> [g <Plug>(coc-diagnostic-prev)
-            \|nmap <silent> ]g <Plug>(coc-diagnostic-next)
-            \|nnoremap <silent> g. :call CocActionAsync('codeAction')<CR>
-            \|vnoremap <silent> g. :call CocActionAsync('codeAction', v:true)<CR>
-            \|nnoremap <silent> gd :call <SID>goto_definition()<CR>
-            \|nnoremap <silent> gy :call CocActionAsync('jumpTypeDefunition')<CR>
-            \|nnoremap <silent> gi :call CocActionAsync('jumpImplementation')<CR>
-            \|nnoremap <silent> gr :call CocActionAsync('jumpReferences')<CR>
-            \|nnoremap <silent> K :call <SID>show_documentation()<CR>
-            \|nnoremap <Leader>rn :call CocActionAsync('rename')<CR>
-            \|nnoremap == :call CocActionAsync('format')<CR>
-            \|vnoremap = :call CocActionAsync('formatSelected', 'v')<CR>
+            \|nmap     <silent> [g         <Plug>(coc-diagnostic-prev)
+            \|nmap     <silent> ]g         <Plug>(coc-diagnostic-next)
+            \|nnoremap <silent> g.         <Plug>(coc-codeaction)
+            \|nnoremap <silent> gd         :call <SID>GotoDefinition()<CR>
+            \|nnoremap <silent> gy         <Plug>(coc-type-definition)
+            \|nnoremap <silent> gi         <Plug>(coc-implementation)
+            \|nnoremap <silent> gr         <Plug>(coc-references)
+            \|nnoremap <silent> K          :call <SID>ShowDocumentation()<CR>
+            \|nnoremap <silent> <Leader>rn <Plug>(coc-rename)
+            \|nnoremap <silent> ==         <Plug>(coc-format)
+            \|vnoremap <silent> =          <Plug>(coc-format-selected)
         \|endif
 augroup END
 
-function! s:goto_definition()
-    if CocAction('jumpDefinition')
-        return v:true
-    endif
+function! s:GotoDefinition() abort
+    try
+        if CocAction('jumpDefinition')
+            return v:true
+        endif
+    catch /\<request: definition provider not found\>/
+        " echo v:exception
+    endtry
 
-    let ret = execute("silent! normal \<C-]>")
-    if (ret =~ "Error" || ret =~ "エラー")
-        call searchdecl(expand('<cword>'))
-    endif
+    call searchdecl(expand('<cword>'))
 endfunction
 
-function! s:show_documentation()
+function! s:ShowDocumentation() abort
     if index(['vim','help'], &filetype) >= 0
         execute 'h ' .. expand('<cword>')
     elseif coc#rpc#ready()
