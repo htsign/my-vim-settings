@@ -65,4 +65,9 @@ augroup OmniComplete
       \|endif
 augroup END
 
+if exists('*timer_start')
+    " update help tags asyncronously
+    call timer_start(0, { -> execute('helptags ALL') })
+endif
+
 source ~/.vim/easymotion.vim
