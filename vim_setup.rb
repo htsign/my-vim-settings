@@ -3,7 +3,7 @@
 require 'fileutils'
 require 'open-uri'
 
-PREFIX = 'https://gist.githubusercontent.com/htsign/c7b2817ffa2e4ce9f6646d07e998ab0f/raw'.freeze
+PREFIX = 'https://raw.githubusercontent.com/htsign/my-vim-settings/master'.freeze
 
 def save file, url
   open(file, 'w') do |f|
