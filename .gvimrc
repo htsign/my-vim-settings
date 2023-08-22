@@ -1,5 +1,5 @@
-let s:font_name = 'Cica'
-let s:font_size = '12'
+let s:font_name = 'HackGen'
+let s:font_size = '14'
 
 colorscheme desert
 highlight! Pmenu guibg=#21222C ctermbg=235
