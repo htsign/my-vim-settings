@@ -21,6 +21,7 @@ Dir.chdir File.expand_path('~/.vim') do
   EXT_PACKAGES = [
     ['vim-jp/vimdoc-ja'],
     ['neoclide/coc.nvim', 'release'],
+    ['Exafunction/codeium.vim'],
     ['easymotion/vim-easymotion'],
     ['itchyny/vim-cursorword'],
     ['kshenoy/vim-signature'],
