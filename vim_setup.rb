@@ -15,6 +15,7 @@ save File.expand_path('~/.vimrc'), "#{PREFIX}/.vimrc"
 
 FileUtils.mkdir_p File.expand_path('~/.vim')
 save File.expand_path('~/.vim/keymap.vim'), "#{PREFIX}/keymap.vim"
+save File.expand_path('~/.vim/codeium.vim'), "#{PREFIX}/codeium.vim"
 save File.expand_path('~/.vim/easymotion.vim'), "#{PREFIX}/easymotion.vim"
 
 Dir.chdir File.expand_path('~/.vim') do
