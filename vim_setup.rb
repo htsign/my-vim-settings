@@ -5,18 +5,19 @@ require 'open-uri'
 
 PREFIX = 'https://raw.githubusercontent.com/htsign/my-vim-settings/master'.freeze
 
-def save file, url
-  open(file, 'w') do |f|
-    f.write URI.open(url).read
+def fetch_and_write filename, subdirs = []
+  path = File.expand_path((['~'] + subdirs + [filename]).join '/')
+  open(path, 'w') do |f|
+    f.write URI.open("#{PREFIX}/#{filename}").read
   end
 end
 
-save File.expand_path('~/.vimrc'), "#{PREFIX}/.vimrc"
+fetch_and_write '.vimrc'
 
 FileUtils.mkdir_p File.expand_path('~/.vim')
-save File.expand_path('~/.vim/keymap.vim'), "#{PREFIX}/keymap.vim"
-save File.expand_path('~/.vim/codeium.vim'), "#{PREFIX}/codeium.vim"
-save File.expand_path('~/.vim/easymotion.vim'), "#{PREFIX}/easymotion.vim"
+fetch_and_write 'keymap.vim', ['.vim']
+fetch_and_write 'codeium.vim', ['.vim']
+fetch_and_write 'easymotion.vim', ['.vim']
 
 Dir.chdir File.expand_path('~/.vim') do
   EXT_PACKAGES = [
