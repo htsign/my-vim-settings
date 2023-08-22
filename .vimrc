@@ -48,9 +48,9 @@ set helplang=ja,en
 
 set laststatus=2
 if exists(':Codeium')
-  set statusline=%<%f\ %m%r%h%w%{'['..(&fenc!=''?&fenc:&enc)..(&bomb?'\ (BOM)':'')..']['..&ff..']'}%=[%{&ft}][Codeium:\ %{codeium#GetStatusString()}]%6l,%c%V%8P
+  set statusline=%<%f\ %m%r%h%w[%{&fenc!=''?&fenc:&enc}%{&bomb?'\ (BOM)':''}][%{&ff}]%=[%{&ft}][Codeium:%{codeium#GetStatusString()}]%6l,%c%V%8P
 else
-  set statusline=%<%f\ %m%r%h%w%{'['..(&fenc!=''?&fenc:&enc)..(&bomb?'\ (BOM)':'')..']['..&ff..']'}%=[%{&ft}]%6l,%c%V%8P
+  set statusline=%<%f\ %m%r%h%w[%{&fenc!=''?&fenc:&enc}%{&bomb?'\ (BOM)':''}][%{&ff}]%=[%{&ft}]%6l,%c%V%8P
 endif
 
 set mouse=a
