@@ -28,7 +28,7 @@ set splitbelow
 set splitright
 
 set expandtab
-set tabstop=2 softtabstop=2 shiftwidth=0
+set tabstop=2 shiftwidth=0 softtabstop=-1
 set autoindent
 set smartindent
 
