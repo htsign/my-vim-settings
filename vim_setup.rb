@@ -42,9 +42,15 @@ Dir.chdir File.expand_path('~/.vim') do
 
     packages.each do |pkg, branch|
       author, name = pkg.split('/')
-      if Dir.exist? File.join(root, name)
+      dir = File.join root, name
+
+      if Dir.exist? dir
         puts "updating #{name}..."
-        `git -C #{root}/#{name} pull --ff-only`
+
+        branch ||= `git -C #{dir} remote show origin`.match(/^\s*HEAD branch: (.+)$/) { $1 }
+
+        `git -C #{dir} fetch --prune`
+        `git -C #{dir} reset --hard origin/#{branch}`
       else
         `git -C #{root} clone #{branch ? "-b #{branch}" : ''} https://github.com/#{pkg}.git`
       end
