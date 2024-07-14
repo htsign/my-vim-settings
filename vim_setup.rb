@@ -45,7 +45,7 @@ Dir.chdir File.expand_path('~/.vim') do
       dir = File.join root, name
 
       if Dir.exist? dir
-        puts "updating #{name}..."
+        puts "\033[33mupdating #{author}/#{name}...\033[0m"
 
         branch ||= `git -C #{dir} remote show origin`.match(/^\s*HEAD branch: (.+)$/) { $1 }
 
