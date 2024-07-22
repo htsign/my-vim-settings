@@ -1,4 +1,10 @@
 set encoding=utf-8
+
+packadd! matchit
+if v:version >= 900
+  packadd! editorconfig
+endif
+
 source ~/.vim/keymap.vim
 
 set nobackup
