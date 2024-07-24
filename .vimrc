@@ -44,6 +44,9 @@ set list listchars=tab:\-\-\>,extends:»,precedes:«,trail:⋅
 set matchpairs&
 set matchpairs+=「:」,『:』,（:）,【:】
 
+highlight NonText    ctermbg=NONE ctermfg=240 guibg=NONE guifg=#585858
+highlight SpecialKey ctermbg=NONE ctermfg=240 guibg=NONE guifg=#585858
+
 set incsearch
 set ignorecase
 set smartcase
