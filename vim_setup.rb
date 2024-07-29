@@ -18,6 +18,7 @@ FileUtils.mkdir_p File.expand_path('~/.vim')
 fetch_and_write 'keymap.vim', ['.vim']
 fetch_and_write 'codeium.vim', ['.vim']
 fetch_and_write 'easymotion.vim', ['.vim']
+fetch_and_write 'ctrlp.vim', ['.vim']
 
 Dir.chdir File.expand_path('~/.vim') do
   EXT_PACKAGES = [
