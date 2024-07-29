@@ -1,7 +1,7 @@
 set encoding=utf-8
 
 packadd! matchit
-if v:version >= 900
+if v:version >= 900 && glob('$VIMRUNTIME/**/pack/*/opt/editorconfig') != ''
   packadd! editorconfig
 endif
 
