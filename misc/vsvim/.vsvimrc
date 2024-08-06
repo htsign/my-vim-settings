@@ -1,0 +1,25 @@
+set cursorline number
+set scrolloff=5
+
+set autoindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set iminsert=2
+
+nmap <C-[><C-[> :nohlsearch<CR>
+nmap S ddO
+
+nmap <C-o> :vsc View.NavigateBackwork<CR>
+nmap <C-i> :vsc View.NavigateForward<CR>
+nmap gd :vsc Edit.GoToDefinition<CR>
+
+source ~/.vsvim/basic_surround.vim
+
