@@ -1,4 +1,5 @@
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 
 let g:ctrlp_prompt_mappings = {
   \ 'PrtBS()':              ['<bs>', '<c-h>'],

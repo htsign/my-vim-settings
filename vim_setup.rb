@@ -27,6 +27,7 @@ Dir.chdir File.expand_path('~/.vim') do
     ['Exafunction/codeium.vim'],
     ['easymotion/vim-easymotion'],
     ['ctrlpvim/ctrlp.vim'],
+    ['mattn/ctrlp-matchfuzzy'],
     ['itchyny/vim-cursorword'],
     ['kshenoy/vim-signature'],
     ['tpope/vim-surround'],
