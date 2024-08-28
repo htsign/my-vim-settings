@@ -74,6 +74,10 @@ if !has('nvim')
 endif
 
 filetype plugin indent on
+augroup FileTypeAutoDetect
+  autocmd!
+  autocmd BufWinEnter * filetype detect
+augroup END
 augroup OmniComplete
   autocmd!
   autocmd FileType *
