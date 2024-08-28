@@ -13,7 +13,15 @@ if exists('&renderoptions')
   set renderoptions=type:directx,geom:1,renmode:5
 endif
 
-let s:font_delim = has('win32') ? ':h' : '\ '
+if has('win32')
+  let s:font_delim = ':h'
+elseif has('wsl') && exists('g:neovide')
+  let s:font_delim = ':style=Regular\ '
+elseif has('unix')
+  let s:font_delim = ' '
+else
+  let s:font_delim = '\ '
+endif
 let &guifont = s:font_name .. s:font_delim .. s:font_size
 
 autocmd VimResized * execute "normal \<C-w>="
