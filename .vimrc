@@ -69,22 +69,22 @@ set autochdir
 set mouse=a
 
 if !has('nvim')
-    set iminsert=2
-    set ttymouse=xterm2
+  set iminsert=2
+  set ttymouse=xterm2
 endif
 
 filetype plugin indent on
 augroup OmniComplete
-    autocmd!
-    autocmd FileType *
-      \ if &l:omnifunc ==# ''
-      \|    setlocal omnifunc=syntaxcomplete#Complete
-      \|endif
+  autocmd!
+  autocmd FileType *
+    \ if &l:omnifunc ==# ''
+    \|    setlocal omnifunc=syntaxcomplete#Complete
+    \|endif
 augroup END
 
 if exists('*timer_start')
-    " update help tags asyncronously
-    call timer_start(0, { -> execute('helptags ALL') })
+  " update help tags asyncronously
+  call timer_start(0, { -> execute('helptags ALL') })
 endif
 
 source ~/.vim/codeium.vim
