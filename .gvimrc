@@ -1,7 +1,6 @@
 let s:font_name = 'HackGen'
 let s:font_size = '14'
 
-colorscheme desert
 highlight! Pmenu guibg=#21222C ctermbg=235
 highlight! PmenuSbar guibg=#21222C ctermbg=235
 highlight! PmenuSel guibg=#44475A ctermbg=239

@@ -19,10 +19,6 @@ let &t_Co = 256
 let &t_Sf = "\<Esc>[3%dm"
 let &t_Sb = "\<Esc>[4%dm"
 
-syntax on
-filetype plugin indent on
-colorscheme desert
-
 set imsearch=-1
 
 set emoji
@@ -73,11 +69,15 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
+syntax on
 filetype plugin indent on
 augroup FileTypeAutoDetect
   autocmd!
   autocmd BufWinEnter * filetype detect
 augroup END
+
+colorscheme desert
+
 augroup OmniComplete
   autocmd!
   autocmd FileType *
