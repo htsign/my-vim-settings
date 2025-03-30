@@ -11,6 +11,8 @@ augroup KeyBinding
   autocmd!
   autocmd VimEnter *
     \ if exists(':CocConfig')
+      \|nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "\<C-f>"
+      \|nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "\<C-b>"
       \|nmap     <silent> [g         <Plug>(coc-diagnostic-prev)
       \|nmap     <silent> ]g         <Plug>(coc-diagnostic-next)
       \|nnoremap <silent> g.         <Plug>(coc-codeaction)
