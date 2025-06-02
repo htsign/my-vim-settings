@@ -19,6 +19,9 @@ let &t_Co = 256
 let &t_Sf = "\<Esc>[3%dm"
 let &t_Sb = "\<Esc>[4%dm"
 
+" for skk
+set imcmdline
+set iminsert=1
 set imsearch=-1
 
 set emoji
