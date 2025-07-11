@@ -22,6 +22,18 @@ augroup KeyBinding
       \|nnoremap <silent> gr         <Plug>(coc-references)
       \|nnoremap <silent> K          :call <SID>ShowDocumentation()<CR>
       \|nnoremap <silent> <Leader>rn <Plug>(coc-rename)
+      \|onoremap <silent> ci <Plug>(coc-classobj-i)
+      \|onoremap <silent> ca <Plug>(coc-classobj-a)
+      \|onoremap <silent> fi <Plug>(coc-funcobj-i)
+      \|onoremap <silent> fa <Plug>(coc-funcobj-a)
+      \|vnoremap <silent> <Leader>ci <Plug>(coc-classobj-i)
+      \|vnoremap <silent> <Leader>ca <Plug>(coc-classobj-a)
+      \|vnoremap <silent> <Leader>fi <Plug>(coc-funcobj-i)
+      \|vnoremap <silent> <Leader>fa <Plug>(coc-funcobj-a)
+      \|nnoremap <silent> <Leader>ci :normal v<Leader>ci<CR>
+      \|nnoremap <silent> <Leader>ca :normal v<Leader>ca<CR>
+      \|nnoremap <silent> <Leader>fi :normal v<Leader>fi<CR>
+      \|nnoremap <silent> <Leader>fa :normal v<Leader>fa<CR>
       \|nnoremap <silent> ==         <Plug>(coc-format)
       \|vnoremap <silent> =          <Plug>(coc-format-selected)
     \|endif
