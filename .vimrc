@@ -20,7 +20,7 @@ let &t_Sf = "\<Esc>[3%dm"
 let &t_Sb = "\<Esc>[4%dm"
 
 " for skk
-set imcmdline
+silent! set imcmdline " unsupported option in nvim
 set iminsert=1
 set imsearch=-1
 
