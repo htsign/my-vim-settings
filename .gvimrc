@@ -12,6 +12,11 @@ if exists('&renderoptions')
   set renderoptions=type:directx,geom:1,renmode:5
 endif
 
+if exists('g:neovide')
+  let g:neovide_opacity = 0.9
+  let g:neovide_cursor_vfx_mode = "railgun"
+endif
+
 if has('win32')
   let s:font_delim = ':h'
 elseif has('wsl') && exists('g:neovide')
