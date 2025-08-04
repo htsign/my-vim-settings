@@ -3,12 +3,12 @@
 require 'fileutils'
 require 'open-uri'
 
-PREFIX = 'https://raw.githubusercontent.com/htsign/my-vim-settings/master'.freeze
+PREFIX = 'https://raw.githubusercontent.com/htsign/my-vim-settings/refs/heads/master'.freeze
 
 def fetch_and_write filename, subdirs = []
   path = File.expand_path((['~'] + subdirs + [filename]).join '/')
   open(path, 'w') do |f|
-    f.write URI.open("#{PREFIX}/#{filename}").read
+    f.write URI.open("#{PREFIX}/#{(subdirs + [filename]).join '/'}").read
   end
 end
 
