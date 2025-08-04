@@ -29,6 +29,7 @@ Dir.chdir File.expand_path('~/.vim') do
     ['ctrlpvim/ctrlp.vim'],
     ['mattn/ctrlp-matchfuzzy'],
     ['itchyny/vim-cursorword'],
+    ['obcat/vim-hitspop'],
     ['kshenoy/vim-signature'],
     ['tpope/vim-surround'],
   ].freeze
