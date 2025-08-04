@@ -97,3 +97,4 @@ endif
 source ~/.vim/codeium.vim
 source ~/.vim/easymotion.vim
 source ~/.vim/ctrlp.vim
+source ~/.vim/current_word.vim
