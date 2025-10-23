@@ -19,6 +19,10 @@ let &t_Co = 256
 let &t_Sf = "\<Esc>[3%dm"
 let &t_Sb = "\<Esc>[4%dm"
 
+filetype plugin indent on
+syntax on
+colorscheme desert
+
 " for skk
 silent! set imcmdline " unsupported option in nvim
 set iminsert=1
@@ -72,14 +76,10 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-syntax on
-filetype plugin indent on
 augroup FileTypeAutoDetect
   autocmd!
   autocmd BufWinEnter * filetype detect
 augroup END
-
-colorscheme desert
 
 augroup OmniComplete
   autocmd!
