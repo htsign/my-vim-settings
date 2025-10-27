@@ -1,8 +1,11 @@
 set encoding=utf-8
 
 packadd! matchit
-if v:version >= 900 && glob('$VIMRUNTIME/**/pack/*/opt/editorconfig') != ''
+if glob('$VIMRUNTIME/**/pack/*/opt/editorconfig') != ''
   packadd! editorconfig
+endif
+if !has('nvim') && glob('$VIMRUNTIME/**/pack/*/opt/vim-hitspop') != ''
+  packadd! vim-hitspop
 endif
 
 source ~/.vim/keymap.vim
@@ -50,6 +53,7 @@ set matchpairs+=「:」,『:』,（:）,【:】
 highlight NonText    ctermbg=NONE ctermfg=240 guibg=NONE guifg=#585858
 highlight SpecialKey ctermbg=NONE ctermfg=240 guibg=NONE guifg=#585858
 
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
