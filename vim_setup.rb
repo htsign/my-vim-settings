@@ -2,24 +2,39 @@
 
 require 'fileutils'
 require 'open-uri'
+require 'json'
 
-PREFIX = 'https://raw.githubusercontent.com/htsign/my-vim-settings/refs/heads/master'.freeze
+OWNER = 'htsign'.freeze
+REPO = 'my-vim-settings'.freeze
+REF = 'master'.freeze
 
 def fetch_and_write filename, subdirs = []
   path = File.expand_path((['~'] + subdirs + [filename]).join '/')
   open(path, 'w') do |f|
-    f.write URI.open("#{PREFIX}/#{(subdirs + [filename]).join '/'}").read
+    url_base = "https://raw.githubusercontent.com/#{OWNER}/#{REPO}/refs/heads/#{REF}"
+    f.write URI.open("#{url_base}/#{(subdirs + [filename]).join '/'}").read
+  end
+end
+
+def expand_tracked_dir dir
+  url = "https://api.github.com/repos/#{OWNER}/#{REPO}/contents/#{dir}?ref=#{REF}"
+  entries = JSON.parse(URI.open(url).read)
+  entries.each do |entry|
+    case entry['type']
+    when 'dir'
+      expand_tracked_dir entry['path']
+    when 'file'
+      d, f = File.split entry['path']
+      FileUtils.mkdir_p File.expand_path("~/#{d}")
+      fetch_and_write f, [d]
+    end
   end
 end
 
 fetch_and_write '.vimrc'
 
 FileUtils.mkdir_p File.expand_path('~/.vim')
-fetch_and_write 'keymap.vim', ['.vim']
-fetch_and_write 'codeium.vim', ['.vim']
-fetch_and_write 'easymotion.vim', ['.vim']
-fetch_and_write 'ctrlp.vim', ['.vim']
-fetch_and_write 'current_word.vim', ['.vim']
+expand_tracked_dir '.vim'
 
 Dir.chdir File.expand_path('~/.vim') do
   EXT_PACKAGES = [
