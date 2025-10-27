@@ -69,11 +69,22 @@ set statusline=%<%f\ %m%r%h%w[%{&fenc!=''?&fenc:&enc}%{&bomb?'\ (BOM)':''}][%{&f
 
 set autochdir
 
-set mouse=a
-
 if !has('nvim')
   set iminsert=2
-  set ttymouse=xterm2
+endif
+
+if has('mouse')
+  set mouse=a
+  if exists('&ttymouse')
+    function! IsWSL() abort
+      let proc_version = '/proc/version'
+      return filereadable(proc_version)
+        \ ? !readfile(proc_version, '', 1)->filter({ _, v -> v =~? 'WSL' })->empty()
+        \ : v:false
+    endfunction
+
+    execute($'set ttymouse={IsWSL() ? 'sgr' : 'xterm2'}')
+  endif
 endif
 
 augroup FileTypeAutoDetect
