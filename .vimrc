@@ -4,8 +4,14 @@ packadd! matchit
 if glob('$VIMRUNTIME/**/pack/*/opt/editorconfig') != ''
   packadd! editorconfig
 endif
-if !has('nvim') && glob('$VIMRUNTIME/**/pack/*/opt/vim-hitspop') != ''
-  packadd! vim-hitspop
+if has('nvim')
+  if glob('$VIMRUNTIME/**/pack/*/opt/nvim-treesitter-textobjects') != ''
+    packadd! nvim-treesitter-textobjects
+  endif
+else
+  if glob('$VIMRUNTIME/**/pack/*/opt/vim-hitspop') != ''
+    packadd! vim-hitspop
+  endif
 endif
 
 source ~/.vim/keymap.vim

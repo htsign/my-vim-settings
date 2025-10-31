@@ -50,6 +50,7 @@ Dir.chdir File.expand_path('~/.vim') do
   ].freeze
   EXT_OPT_PACKAGES = [
     ['obcat/vim-hitspop'],
+    ['nvim-treesitter/nvim-treesitter-textobjects', 'main'],
   ].freeze
   FTPLUGIN_PACKAGES = [
     ['sheerun/vim-polyglot'],
