@@ -86,14 +86,17 @@ endif
 if has('mouse')
   set mouse=a
   if exists('&ttymouse')
-    function! IsWSL() abort
+    function! IsUnixOnWin() abort
+      if has('win32unix')
+        return v:true
+      endif
       let proc_version = '/proc/version'
       return filereadable(proc_version)
         \ ? !readfile(proc_version, '', 1)->filter({ _, v -> v =~? 'WSL' })->empty()
         \ : v:false
     endfunction
 
-    execute($'set ttymouse={IsWSL() ? 'sgr' : 'xterm2'}')
+    execute($'set ttymouse={IsUnixOnWin() ? 'sgr' : 'xterm2'}')
   endif
 endif
 
