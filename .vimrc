@@ -63,10 +63,6 @@ set showmatch
 set helplang=ja,en
 
 set showtabline=2
-augroup BufferAsTab
-  autocmd!
-  autocmd BufNew * tab ball
-augroup END
 
 set laststatus=2
 set statusline=%<%f\ %m%r%h%w[%{&fenc!=''?&fenc:&enc}%{&bomb?'\ (BOM)':''}][%{&ff}]%=[%{&ft}]%6l,%c%V%8P
