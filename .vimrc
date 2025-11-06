@@ -5,13 +5,9 @@ if glob('$VIMRUNTIME/**/pack/*/opt/editorconfig') != ''
   packadd! editorconfig
 endif
 if has('nvim')
-  if glob('$VIMRUNTIME/**/pack/*/opt/nvim-treesitter-textobjects') != ''
-    packadd! nvim-treesitter-textobjects
-  endif
+  packadd! nvim-treesitter-textobjects
 else
-  if glob('$VIMRUNTIME/**/pack/*/opt/vim-hitspop') != ''
-    packadd! vim-hitspop
-  endif
+  packadd! vim-hitspop
 endif
 
 set nobackup
