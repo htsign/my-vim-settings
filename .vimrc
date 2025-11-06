@@ -14,8 +14,6 @@ else
   endif
 endif
 
-source ~/.vim/keymap.vim
-
 set nobackup
 set noswapfile
 set noundofile
@@ -118,7 +116,16 @@ if exists('*timer_start')
   call timer_start(0, { -> execute('helptags ALL') })
 endif
 
-source ~/.vim/codeium.vim
-source ~/.vim/easymotion.vim
-source ~/.vim/ctrlp.vim
-source ~/.vim/current_word.vim
+function! s:ReadScript(path) abort
+  let path = expand(a:path)
+  if filereadable(path)
+    execute $'source {fnameescape(path)}'
+  endif
+endfunction
+
+call s:ReadScript('~/.vim/keymap.vim')
+
+call s:ReadScript('~/.vim/codeium.vim')
+call s:ReadScript('~/.vim/easymotion.vim')
+call s:ReadScript('~/.vim/ctrlp.vim')
+call s:ReadScript('~/.vim/current_word.vim')
