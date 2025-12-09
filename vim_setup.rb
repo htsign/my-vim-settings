@@ -73,10 +73,10 @@ Dir.chdir File.expand_path('~/.vim') do
 
         branch ||= `git -C #{dir} remote show origin`.match(/^\s*HEAD branch: (.+)$/) { $1 }
 
-        `git -C #{dir} fetch --prune`
+        `git -C #{dir} fetch --depth=1 --prune`
         `git -C #{dir} reset --hard origin/#{branch}`
       else
-        `git -C #{root} clone #{branch ? "-b #{branch}" : ''} https://github.com/#{pkg}.git`
+        `git -C #{root} clone --depth=1 #{branch ? "-b #{branch}" : ''} https://github.com/#{pkg}.git`
       end
     end
   end
