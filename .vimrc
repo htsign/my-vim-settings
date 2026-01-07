@@ -86,7 +86,7 @@ if has('mouse')
         \ : v:false
     endfunction
 
-    execute($'set ttymouse={IsUnixOnWin() ? 'sgr' : 'xterm2'}')
+    execute($'set ttymouse={IsUnixOnWin() || has('osxdarwin') ? 'sgr' : 'xterm2'}')
   endif
 endif
 
