@@ -17,7 +17,7 @@ if exists('g:neovide')
   let g:neovide_cursor_vfx_mode = "railgun"
 endif
 
-if has('win32')
+if has('win32') || has('gui_macvim')
   let s:font_delim = ':h'
 elseif has('wsl') && exists('g:neovide')
   let s:font_delim = ':style=Regular\ '
