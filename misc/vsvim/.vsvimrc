@@ -17,7 +17,7 @@ set iminsert=2
 nmap <C-[><C-[> :nohlsearch<CR>
 nmap S ddO
 
-nmap <C-o> :vsc View.NavigateBackwork<CR>
+nmap <C-o> :vsc View.NavigateBackward<CR>
 nmap <C-i> :vsc View.NavigateForward<CR>
 nmap gd :vsc Edit.GoToDefinition<CR>
 

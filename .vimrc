@@ -76,7 +76,7 @@ endif
 if has('mouse')
   set mouse=a
   if exists('&ttymouse')
-    function! IsUnixOnWin() abort
+    function! s:IsUnixOnWin() abort
       if has('win32unix')
         return v:true
       endif
@@ -86,7 +86,7 @@ if has('mouse')
         \ : v:false
     endfunction
 
-    execute($'set ttymouse={IsUnixOnWin() || has('osxdarwin') ? 'sgr' : 'xterm2'}')
+    execute($'set ttymouse={s:IsUnixOnWin() || has('osxdarwin') ? 'sgr' : 'xterm2'}')
   endif
 endif
 
@@ -99,7 +99,7 @@ augroup OmniComplete
 augroup END
 
 if exists('*timer_start')
-  " update help tags asyncronously
+  " update help tags asynchronously
   call timer_start(0, { -> execute('helptags ALL') })
 endif
 
