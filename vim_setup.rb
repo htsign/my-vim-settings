@@ -10,7 +10,7 @@ REF = 'master'.freeze
 
 def fetch_and_write filename, subdirs = []
   path = File.expand_path((['~'] + subdirs + [filename]).join '/')
-  open(path, 'w') do |f|
+  File.open(path, 'w') do |f|
     url_base = "https://raw.githubusercontent.com/#{OWNER}/#{REPO}/refs/heads/#{REF}"
     f.write URI.open("#{url_base}/#{(subdirs + [filename]).join '/'}").read
   end
