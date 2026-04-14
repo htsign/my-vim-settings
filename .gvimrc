@@ -28,4 +28,7 @@ else
 endif
 let &guifont = s:font_name .. s:font_delim .. s:font_size
 
-autocmd VimResized * execute "normal \<C-w>="
+augroup EqualizeWindows
+  autocmd!
+  autocmd VimResized * execute "normal \<C-w>="
+augroup END
