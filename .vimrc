@@ -90,11 +90,6 @@ if has('mouse')
   endif
 endif
 
-augroup FileTypeAutoDetect
-  autocmd!
-  autocmd BufWinEnter * filetype detect
-augroup END
-
 augroup OmniComplete
   autocmd!
   autocmd FileType *
