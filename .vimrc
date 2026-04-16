@@ -1,5 +1,18 @@
 set encoding=utf-8
 
+function! s:ReadScript(path) abort
+  let path = expand(a:path)
+  if filereadable(path)
+    execute $'source {fnameescape(path)}'
+  endif
+endfunction
+
+call s:ReadScript('~/.vim/polyglot.vim')
+call s:ReadScript('~/.vim/codeium.vim')
+call s:ReadScript('~/.vim/easymotion.vim')
+call s:ReadScript('~/.vim/ctrlp.vim')
+call s:ReadScript('~/.vim/current_word.vim')
+
 packadd! matchit
 if has('nvim')
   packadd! nvim-treesitter-textobjects
@@ -104,17 +117,4 @@ if exists('*timer_start')
   call timer_start(0, { -> execute('helptags ALL') })
 endif
 
-function! s:ReadScript(path) abort
-  let path = expand(a:path)
-  if filereadable(path)
-    execute $'source {fnameescape(path)}'
-  endif
-endfunction
-
 call s:ReadScript('~/.vim/keymap.vim')
-
-call s:ReadScript('~/.vim/polyglot.vim')
-call s:ReadScript('~/.vim/codeium.vim')
-call s:ReadScript('~/.vim/easymotion.vim')
-call s:ReadScript('~/.vim/ctrlp.vim')
-call s:ReadScript('~/.vim/current_word.vim')
