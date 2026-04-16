@@ -1,13 +1,14 @@
 set encoding=utf-8
 
 packadd! matchit
-if glob('$VIMRUNTIME/**/pack/*/opt/editorconfig') != ''
-  packadd! editorconfig
-endif
 if has('nvim')
   packadd! nvim-treesitter-textobjects
 else
+  packadd! vim-polyglot
   packadd! vim-hitspop
+  if glob('$VIMRUNTIME/pack/*/opt/editorconfig') != ''
+    packadd! editorconfig
+  endif
 endif
 
 set nobackup

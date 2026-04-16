@@ -53,15 +53,16 @@ Dir.chdir File.expand_path('~/.vim') do
     ['obcat/vim-hitspop'],
     ['nvim-treesitter/nvim-treesitter-textobjects', 'main'],
   ].freeze
-  FTPLUGIN_PACKAGES = [
+  FTPLUGIN_PACKAGES = [].freeze
+  FTPLUGIN_OPT_PACKAGES = [
     ['sheerun/vim-polyglot'],
     ['mechatroner/rainbow_csv'],
     ['MTDL9/vim-log-highlighting'],
     ['plasticboy/vim-markdown'],
   ].freeze
 
-  def install_packages packages, category, auto=true
-    root = File.expand_path("~/.vim/pack/#{category}/#{auto ? 'start' : 'opt'}")
+  def install_packages packages, category, autoload=true
+    root = File.expand_path("~/.vim/pack/#{category}/#{autoload ? 'start' : 'opt'}")
     FileUtils.mkdir_p root
 
     packages.each do |pkg, branch|
@@ -83,4 +84,5 @@ Dir.chdir File.expand_path('~/.vim') do
   install_packages EXT_PACKAGES, 'extensions'
   install_packages EXT_OPT_PACKAGES, 'extensions', false
   install_packages FTPLUGIN_PACKAGES, 'ftplugins'
+  install_packages FTPLUGIN_OPT_PACKAGES, 'ftplugins', false
 end
