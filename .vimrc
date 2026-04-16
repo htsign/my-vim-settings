@@ -32,9 +32,13 @@ let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
 let &t_EI = "\e[2 q"
 
-let &t_Co = 256
-let &t_Sf = "\<Esc>[3%dm"
-let &t_Sb = "\<Esc>[4%dm"
+if has('termguicolors')
+  set termguicolors
+else
+  let &t_Co = 256
+  let &t_Sf = "\<Esc>[3%dm"
+  let &t_Sb = "\<Esc>[4%dm"
+endif
 
 filetype plugin indent on
 syntax on
