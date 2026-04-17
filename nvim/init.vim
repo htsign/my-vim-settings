@@ -6,5 +6,3 @@ if has('gui_running')
 endif
 
 source ~/.vimrc
-
-packloadall
