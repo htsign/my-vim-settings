@@ -62,6 +62,8 @@ Dir.chdir File.expand_path('~/.vim') do
   ].freeze
 
   def install_packages packages, category, autoload=true
+    return if packages.empty?
+
     root = File.expand_path("~/.vim/pack/#{category}/#{autoload ? 'start' : 'opt'}")
     FileUtils.mkdir_p root
 
