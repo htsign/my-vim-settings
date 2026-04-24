@@ -1,2 +1,2 @@
 ## wasavi.exrc
-https://appsweets.net/wasavi/
+https://github.com/akahuku/wasavi
