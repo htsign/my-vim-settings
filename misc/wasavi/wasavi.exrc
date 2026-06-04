@@ -3,7 +3,7 @@ set number
 set cursorcolumn cursorline
 
 set expandtab
-set tabstop=4 shiftwidth=4
+set tabstop=2 shiftwidth=0
 set autoindent
 
 set incsearch
