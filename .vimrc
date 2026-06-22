@@ -7,6 +7,10 @@ function! s:ReadScript(path) abort
   endif
 endfunction
 
+if has('osxdarwin')
+  let g:mapleader = '_'
+endif
+
 call s:ReadScript('~/.vim/polyglot.vim')
 call s:ReadScript('~/.vim/codeium.vim')
 call s:ReadScript('~/.vim/easymotion.vim')
