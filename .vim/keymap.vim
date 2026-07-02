@@ -12,6 +12,10 @@ augroup CoCKeyBinding
   autocmd VimEnter * call s:SetupCocKeyBindings()
 augroup END
 
+if has('terminal') && executable('leaf')
+  nnoremap <Leader>md :vertical botright terminal leaf -w %<CR>
+endif
+
 function! s:SetupCocKeyBindings() abort
   if !exists(':CocConfig')
     return
