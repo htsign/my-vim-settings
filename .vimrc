@@ -12,6 +12,7 @@ if has('osxdarwin')
 endif
 
 call s:ReadScript('~/.vim/polyglot.vim')
+call s:ReadScript('~/.vim/vim-ambiwidth.vim')
 call s:ReadScript('~/.vim/codeium.vim')
 call s:ReadScript('~/.vim/easymotion.vim')
 call s:ReadScript('~/.vim/ctrlp.vim')
