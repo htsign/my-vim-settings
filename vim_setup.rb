@@ -40,6 +40,7 @@ Dir.chdir File.expand_path('~/.vim') do
   EXT_PACKAGES = [
     ['vim-jp/vimdoc-ja'],
     ['ap/vim-buftabline'],
+    ['rbtnn/vim-ambiwidth'],
     ['neoclide/coc.nvim', 'release'],
     ['Exafunction/windsurf.vim'],
     ['easymotion/vim-easymotion'],
